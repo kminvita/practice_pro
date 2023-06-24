@@ -1,3 +1,1 @@
-import { variable } from "components";
-
-export {};
+export { default as MainPage } from './main';
