@@ -1,5 +1,5 @@
 import './main.css';
-import { CommonModal } from '../../components';
+import { DetailModal } from '../../components';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import cx from 'classnames';
@@ -71,21 +71,8 @@ function MainPage() {
                         )
                     })}
                 </section>
-                {/* 리스트가 없을 경우에는 추가해주세요 라는 텍스트 추가할것임 */}
-                {/* <section className='todolist'>
-                    <article className='todoitem'>
-                        <div>
-                            <p className='todotitle'>제목입니다</p>
-                            <tium className="createddate">생성날짜 2023-06-25</tium>
-                        </div>
-                        <div>
-                            <button type='button' className='editbutton'>수정</button>
-                            <button type='button' className='deletebutton'>삭제</button>
-                        </div>
-                    </article>
-                </section> */}
             </main>
-            <CommonModal isOpen={isOpen} />
+            <DetailModal isOpen={isOpen} />
         </>
     );
 };
