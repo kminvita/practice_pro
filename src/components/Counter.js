@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import './counter.css';
 
-function Counter() {
-    const [counter, setCounter] = useState(0);
+function Counter({ counter, setCounter }) {
     const onClickPlus = () => {
         setCounter((prev) => prev + 1);
     };
@@ -10,6 +9,10 @@ function Counter() {
     const onClickMinus = () => {
         setCounter((prev) => prev - 1);
     };
+
+    useEffect(() => {
+        console.log("counter;;", counter)
+    }, [counter]);
 
     return (
         <main>
