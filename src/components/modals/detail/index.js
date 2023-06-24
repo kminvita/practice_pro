@@ -17,7 +17,7 @@ function DetailModal({ isOpen, onClose, item }) {
                 <h1 className='modaltitle'>수정 날짜</h1>
                 <p>{item.updatedAt}</p>
                 <h1 className='modaltitle'>완료 여부</h1>
-                <p>{item.isComplete}</p>
+                <p>{item.isComplete ? "완료" : "미완료"}</p>
             </aside>
         </div>
     );
