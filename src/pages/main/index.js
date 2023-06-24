@@ -27,7 +27,7 @@ dayjs.locale('ko');
 
 function MainPage() {
     const [clickedItem, setClickedItem] = useState(null);
-    const [todoList, setTodolist] = useState(DUMMY_TODOLIST);
+    const [todoList, setTodolist] = useState([]);
     
     const onClickTitle = (id) => {
         const clickedItem = todoList.find((item) => item.id ===id);
@@ -78,6 +78,7 @@ function MainPage() {
                                 </article>
                         )
                     })}
+                    {todoList.length === 0 && <span className='emptyText'>추가해주세요</span>}
                 </section>
             </main>
             <DetailModal 
