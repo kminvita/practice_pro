@@ -26,13 +26,21 @@ const DUMMY_TODOLIST = [
 dayjs.locale('ko');
 
 function MainPage() {
-    const [isOpen, setIsOpen] = useState(false);
-
+    const [clickedItem, setClickedItem] = useState(null);
     const [todoList, setTodolist] = useState(DUMMY_TODOLIST);
+    
+    const onClickTitle = (id) => {
+        const clickedItem = todoList.find((item) => item.id ===id);
+        if (!clickedItem) return;
+        setClickedItem(clickedItem);
+    }
+    
+    const onCloseModal = () => {
+        setClickedItem(null);
+    };
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)}>모달 열기</button>
             <main>
                 <h1>our React Todolist</h1>
                 <div className='Topnavbar'>
@@ -44,7 +52,7 @@ function MainPage() {
                         return (
                                 <article key={item.id} className={cx("todoitem", { complete: item.isComplete })}>
                                     <div>
-                                        <p className='todotitle'>{item.title}</p>
+                                        <p className='todotitle' onClick={() => onClickTitle(item.id)}>{item.title}</p>
                                         <time className='createdate'>생성날짜 {item.createdAt}</time>
                                     </div>
                                     <div>
@@ -72,7 +80,11 @@ function MainPage() {
                     })}
                 </section>
             </main>
-            <DetailModal isOpen={isOpen} />
+            <DetailModal 
+                isOpen={!!clickedItem} 
+                onClose={onCloseModal} 
+                item={clickedItem}
+            />
         </>
     );
 };
