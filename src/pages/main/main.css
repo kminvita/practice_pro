@@ -68,6 +68,10 @@ h1 {
     right: 0;
 }
 
+.todoitem + .todoitem {
+    margin-top: 20px;
+}
+
 .todoitem:hover {
     bottom: 4px;
     right: 4px;
@@ -104,8 +108,22 @@ h1 {
     border: 1px solid #aaaaaa;
 }
 
+.completebutton {
+    color: green;
+    border: 1px solid green;
+}
+
+.completebutton:hover {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+}
+
 .todoitem button + button {
     margin-left: 8px;
+}
+
+.todoitem.complete {
+    background-color: orange;
 }
 
 .todotitle {
