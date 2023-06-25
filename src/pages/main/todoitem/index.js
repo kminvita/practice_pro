@@ -1,6 +1,6 @@
 import cx from 'classnames';
 
-function TodoItem({ item, onClickTitle, onClickComplete }) {
+function TodoItem({ item, onClickTitle, onClickComplete, onClickDelete }) {
     return (
         <article className={cx("todoitem", { complete: item.isComplete })}>
             <div>
@@ -24,6 +24,7 @@ function TodoItem({ item, onClickTitle, onClickComplete }) {
                 <button 
                     type='button' 
                     className='deletebutton'
+                    onClick={onClickDelete}
                 >
                     삭제
                 </button>

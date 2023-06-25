@@ -37,6 +37,11 @@ function MainPage() {
         setTodolist(updatedList);
     };
 
+    const onClickDelete = (id) => () => {
+        const deletedList = todoList.filter((item) => item.id !== id);
+        setTodolist(deletedList);
+    }
+
     return (
         <>
             <main>
@@ -48,6 +53,7 @@ function MainPage() {
                             item={item}
                             onClickTitle={onClickTitle(item.id)}
                             onClickComplete={onClickComplete(item.id)}
+                            onClickDelete={onClickDelete(item.id)}
                         />
                     )}
                     <Empty view={todoList.length === 0} />
