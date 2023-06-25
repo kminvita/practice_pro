@@ -1,9 +1,9 @@
 import './editmodal.css';
 
 function EditModal() {
-    return (
-        <></>
-    );
-};
+  return (
+    <></>
+  );
+}
 
 export default EditModal;

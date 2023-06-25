@@ -1,5 +1,3 @@
 let id = 0;
 
-export const generateID = () => {
-    return id++;
-};
+export const generateID = () => id++;
