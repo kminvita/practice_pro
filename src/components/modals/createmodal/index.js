@@ -1,7 +1,45 @@
 import './createmodal.css';
 import { IconClose } from '../../../assets/icons';
+import { useState } from 'react';
+import { generateID } from '../../utils';
+import dayjs from 'dayjs';
 
-function CreateModal({ isOpen, onClose, value, onChange, onCreate }) {
+dayjs.locale("ko");
+
+const INITIAL_VALUE = {
+    title:"",
+    content:""
+};
+
+function CreateModal({ isOpen, onClose, setTodolist }) {
+    const [value, setValue] = useState(INITIAL_VALUE);
+
+    const onChange = (e) => {
+        const  { name, value } = e.currentTarget;
+        setValue((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const onCreate = (e) => {
+        e.preventDefault();
+
+        if(!value.title || !value.content) return;
+
+        const newItem = {
+            id: generateID(), 
+            ...value, 
+            createdAt: dayjs().format('YYYY.MM.DD'), 
+            updatedAt: dayjs().format('YYYY.MM.DD'), 
+            isComplete: false, 
+        };
+
+        setTodolist((prev) => {
+            return [...prev, newItem];
+        })
+
+        onClose();
+        setValue(INITIAL_VALUE);
+    };
+
     if (!isOpen) return null;
 
     return (
