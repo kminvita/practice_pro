@@ -4,7 +4,7 @@ function TodoItem({ item, onClickTitle }) {
     return (
         <article className={cx("todoitem", { complete: item.isComplete })}>
             <div>
-                <p className='todotitle' onClick={() => onClickTitle(item.id)}>{item.title}</p>
+                <p className='todotitle' onClick={onClickTitle}>{item.title}</p>
                 <time className='createdate'>생성날짜 {item.createdAt}</time>
             </div>
             <div>

@@ -13,7 +13,7 @@ function MainPage() {
     const [isOpenCreatemodal, setIsOpenCreatemodal] = useState(false);
     const [todoList, setTodolist] = useState([]);
     
-    const onClickTitle = (id) => {
+    const onClickTitle = (id) => () => {
         const clickedItem = todoList.find((item) => item.id ===id);
         if (!clickedItem) return;
         setClickedItem(clickedItem);
@@ -35,7 +35,11 @@ function MainPage() {
                 <section className='todolist'>
                     {todoList.map((item) => {
                         return (
-                                <TodoItem key={item.id} item={item} onClickTitle={onClickTitle}/>
+                                <TodoItem 
+                                    key={item.id}
+                                    item={item}
+                                    onClickTitle={onClickTitle(item.id)}
+                                />
                         )
                     })}
                     {todoList.length === 0 && <span className='emptyText'>추가해주세요</span>}
