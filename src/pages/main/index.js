@@ -27,7 +27,8 @@ dayjs.locale('ko');
 
 function MainPage() {
     const [clickedItem, setClickedItem] = useState(null);
-    const [todoList, setTodolist] = useState([]);
+    const [isOpenCreatemodal, setIsOpenCreatemodal] = useState(false);
+    const [todoList, setTodolist] = useState(DUMMY_TODOLIST);
     
     const onClickTitle = (id) => {
         const clickedItem = todoList.find((item) => item.id ===id);
@@ -35,8 +36,9 @@ function MainPage() {
         setClickedItem(clickedItem);
     }
     
-    const onCloseModal = () => {
-        setClickedItem(null);
+    const onCloseModal = (key) => {
+        if (key === "detail") setClickedItem(null);
+        if (key === "create") setIsOpenCreatemodal(false);
     };
 
     return (
@@ -83,10 +85,10 @@ function MainPage() {
             </main>
             <DetailModal 
                 isOpen={!!clickedItem} 
-                onClose={onCloseModal} 
+                onClose={() => onCloseModal("detail")} 
                 item={clickedItem}
             />
-            <CreateModal />
+            <CreateModal isOpen={isOpenCreatemodal} onClose={() => onCloseModal("create")}/>
         </>
     );
 };

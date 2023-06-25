@@ -8,6 +8,11 @@
     left: 0;
 }
 
+.createlModalWrapper h1 {
+    width: 100%;
+    text-align: left;
+}
+
 aside {
     position: absolute;
     top: 50%;
@@ -18,6 +23,8 @@ aside {
     background-color: white;
     border-radius: 12px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .modaltitle {
@@ -31,4 +38,49 @@ aside {
     top: 20px;
     right: 20px;
     cursor: pointer;
+}
+
+.createlModalWrapper input {
+    outline: none;
+    padding: 12px;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #aaa;
+    font-size: 16px;
+}
+
+.createlModalWrapper input:not(:placeholder-shown) {
+    border-color: slateblue;
+}
+
+.createlModalWrapper input:focus-visible {
+    border-color: slateblue;
+}
+
+.createlModalWrapper input:hover {
+    border-color: rgba(106, 90, 205, 0.4);
+}
+
+.createlModalWrapper textarea {
+    resize: none;
+    outline: none;
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.createlModalWrapper button {
+    outline: none;
+    width: 100%;
+    user-select: none;
+    margin-top: auto;
+    font-size: 20px;
+    background-color: slateblue;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    padding: 20px;
 }
