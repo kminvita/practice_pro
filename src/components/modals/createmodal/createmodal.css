@@ -23,8 +23,6 @@ aside {
     background-color: white;
     border-radius: 12px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 .modaltitle {
@@ -83,4 +81,11 @@ aside {
     cursor: pointer;
     color: white;
     padding: 20px;
+}
+
+aside form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
 }
