@@ -3,32 +3,14 @@ import { DetailModal, CreateModal } from '../../components';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import cx from 'classnames';
-
-const DUMMY_TODOLIST = [
-    {
-        id: 1,
-        title: '할 일 1입니다.',
-        content: '내용 1입니다.',
-        createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-        updatedAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-        isComplete: true,
-    },
-    {
-        id: 2,
-        title: '할 일 2입니다.',
-        content: '내용 2입니다.',
-        createdAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-        updatedAt: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-        isComplete: false,
-    }
-];
+import TopInfo from '../topinfo';
 
 dayjs.locale('ko');
 
 function MainPage() {
     const [clickedItem, setClickedItem] = useState(null);
     const [isOpenCreatemodal, setIsOpenCreatemodal] = useState(false);
-    const [todoList, setTodolist] = useState(DUMMY_TODOLIST);
+    const [todoList, setTodolist] = useState([]);
     
     const onClickTitle = (id) => {
         const clickedItem = todoList.find((item) => item.id ===id);
@@ -48,11 +30,7 @@ function MainPage() {
     return (
         <>
             <main>
-                <h1>our React Todolist</h1>
-                <div className='Topnavbar'>
-                    <time>TODAY: {dayjs().format('YYYY.MM.DD')}</time>
-                    <button type='button' className='addbutton' onClick={onClickAdd}>추가</button>
-                </div>
+                <TopInfo onClickAdd={onClickAdd}/>
                 <section className='todolist'>
                     {todoList.map((item) => {
                         return (
