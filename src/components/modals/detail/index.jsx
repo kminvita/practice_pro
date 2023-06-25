@@ -1,3 +1,4 @@
+import React from 'react';
 import './detailmodal.css';
 import { IconClose } from '../../../assets/icons';
 

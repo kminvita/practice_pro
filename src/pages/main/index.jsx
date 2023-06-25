@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import './main.css';
-import { useState } from 'react';
 import { DetailModal, CreateModal, EditModal } from '../../components';
 
 import TopInfo from './topinfo';
@@ -12,9 +12,9 @@ function MainPage() {
   const [todoList, setTodolist] = useState([]);
 
   const onClickTitle = (id) => () => {
-    const clickedItem = todoList.find((item) => item.id === id);
-    if (!clickedItem) return;
-    setClickedItem(clickedItem);
+    const titleClickedItem = todoList.find((item) => item.id === id);
+    if (!titleClickedItem) return;
+    setClickedItem(titleClickedItem);
   };
 
   const onCloseModal = (key) => {
@@ -41,7 +41,7 @@ function MainPage() {
   };
 
   return (
-    <>
+    <div>
       <main>
         <TopInfo onClickAdd={onClickAdd} />
         <section className="todolist">
@@ -68,7 +68,7 @@ function MainPage() {
         setTodolist={setTodolist}
       />
       <EditModal />
-    </>
+    </div>
   );
 }
 

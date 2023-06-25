@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import './createmodal.css';
-import { useState } from 'react';
 import dayjs from 'dayjs';
 import { IconClose } from '../../../assets/icons';
-import { generateID } from '../../utils';
+import { generateID } from '../../../utils';
 
 dayjs.locale('ko');
 
@@ -15,8 +15,8 @@ function CreateModal({ isOpen, onClose, setTodolist }) {
   const [value, setValue] = useState(INITIAL_VALUE);
 
   const onChange = (e) => {
-    const { name, value } = e.currentTarget;
-    setValue((prev) => ({ ...prev, [name]: value }));
+    const { name, value: inputValue } = e.currentTarget;
+    setValue((prev) => ({ ...prev, [name]: inputValue }));
   };
 
   const onCreate = (e) => {

@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Empty({ view }) {
   if (!view) return null;
 
