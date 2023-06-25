@@ -1,5 +1,5 @@
 import './main.css';
-import { DetailModal } from '../../components';
+import { DetailModal, CreateModal } from '../../components';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import cx from 'classnames';
@@ -86,6 +86,7 @@ function MainPage() {
                 onClose={onCloseModal} 
                 item={clickedItem}
             />
+            <CreateModal />
         </>
     );
 };
