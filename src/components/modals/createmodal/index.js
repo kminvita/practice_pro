@@ -1,7 +1,7 @@
 import './createmodal.css';
 import { IconClose } from '../../../assets/icons';
 
-function CreateModal({ isOpen, onClose, value, onChange }) {
+function CreateModal({ isOpen, onClose, value, onChange, onCreate }) {
     if (!isOpen) return null;
 
     return (
@@ -13,12 +13,12 @@ function CreateModal({ isOpen, onClose, value, onChange }) {
                     className='closebutton'
                     onClick={onClose}
                 />
-                <form>
+                <form onSubmit={onCreate}>
                     <h1 className='modaltitle'>제목</h1>
                     <input 
                         type="text"
                         placeholder='제목을 입력해주세요'
-                        name='value'
+                        name='title'
                         value={value.title}
                         onChange={onChange} 
                     />
@@ -30,7 +30,7 @@ function CreateModal({ isOpen, onClose, value, onChange }) {
                         value={value.content}
                         onChange={onChange}
                     />
-                    <button type='button'>생성</button>
+                    <button type='submit'>생성</button>
                 </form>
             </aside>
         </div>

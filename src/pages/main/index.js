@@ -9,11 +9,16 @@ import { generateID } from '../../components/utils';
 
 dayjs.locale('ko');
 
+const INITIAL_VALUE = {
+    title:"",
+    content:""
+};
+
 function MainPage() {
     const [clickedItem, setClickedItem] = useState(null);
     const [isOpenCreatemodal, setIsOpenCreatemodal] = useState(false);
     const [todoList, setTodolist] = useState([]);
-    const [value, setValue] = useState({ title:"", content:"" });
+    const [value, setValue] = useState(INITIAL_VALUE);
 
     const onChange = (e) => {
         const  { name, value } = e.currentTarget;
@@ -35,13 +40,25 @@ function MainPage() {
         setIsOpenCreatemodal(true);
     }
 
-    const onCreate = () => {
-        const newItem = { id: generateID(), ...value }
-        // ...value는 title: value.title이고 content: value.content인데 합쳐서 ...value로 적어줘도 된다.
+    const onCreate = (e) => {
+        e.preventDefault();
 
-        // setTodolist((prev) => {
-        //     return [...prev, ]
-        // })
+        if(!value.title || !value.content) return;
+
+        const newItem = {
+            id: generateID(), 
+            ...value, 
+            createdAt: dayjs().format('YYYY.MM.DD'), 
+            updatedAt: dayjs().format('YYYY.MM.DD'), 
+            isComplete: false, 
+        };
+
+        setTodolist((prev) => {
+            return [...prev, newItem];
+        })
+
+        onCloseModal("create");
+        setValue(INITIAL_VALUE);
     };
 
     return (
@@ -65,6 +82,7 @@ function MainPage() {
                 item={clickedItem}
             />
             <CreateModal 
+                onCreate={onCreate}
                 value={value}
                 onChange={onChange}
                 isOpen={isOpenCreatemodal}
