@@ -1,5 +1,5 @@
 import './main.css';
-import { DetailModal, CreateModal } from '../../components';
+import { DetailModal, CreateModal, EditModal } from '../../components';
 import { useState } from 'react';
 
 import TopInfo from './topinfo';
@@ -69,6 +69,7 @@ function MainPage() {
                 onClose={() => onCloseModal("create")}
                 setTodolist={setTodolist}
             />
+            <EditModal />
         </>
     );
 };
