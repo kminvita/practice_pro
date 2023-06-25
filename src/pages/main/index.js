@@ -4,6 +4,7 @@ import { useState } from 'react';
 import dayjs from 'dayjs';
 import TopInfo from './topinfo';
 import TodoItem from './todoitem';
+import Empty from './empty';
 
 dayjs.locale('ko');
 
@@ -39,7 +40,7 @@ function MainPage() {
                             onClickTitle={onClickTitle(item.id)}
                         />
                     )}
-                    {todoList.length === 0 && <span className='emptyText'>추가해주세요</span>}
+                    <Empty view={todoList.length === 0} />
                 </section>
             </main>
             <DetailModal 
