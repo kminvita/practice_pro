@@ -5,7 +5,7 @@ function TodoItem({
   item, onClickTitle, onClickComplete, onClickDelete,
 }) {
   return (
-    <article className={cx('todoitem', { complete: item.isComplete })}>
+    <article className={cx('todoitem', { complete: item.completed })}>
       <div>
         <p className="todotitle" onClick={onClickTitle}>{item.title}</p>
         <time className="createdate">
@@ -19,7 +19,7 @@ function TodoItem({
           className="completebutton"
           onClick={onClickComplete}
         >
-          {item.isComplete ? '완료해제' : '완료'}
+          {item.completed ? '완료해제' : '완료'}
         </button>
         <button
           type="button"

@@ -14,6 +14,13 @@ function MainPage() {
   const [isOpenCreatemodal, setIsOpenCreatemodal] = useState(false);
   const [todoList, setTodolist] = useState([]);
 
+  const getTodoList = async () => {
+    const { data } = await getTodosApi();
+    setTodolist(data);
+  };
+
+  console.log(todoList);
+
   const onClickTitle = (id) => () => {
     const titleClickedItem = todoList.find((item) => item.id === id);
     if (!titleClickedItem) return;
@@ -31,7 +38,7 @@ function MainPage() {
 
   const onClickComplete = (id) => () => {
     const updatedList = todoList.reduce((acc, cur) => {
-      if (cur.id === id) { return [...acc, { ...cur, isComplete: !cur.isComplete }]; }
+      if (cur.id === id) { return [...acc, { ...cur, completed: !cur.completed }]; }
       return [...acc, cur];
     }, []);
 
@@ -44,9 +51,7 @@ function MainPage() {
   };
 
   useEffect(() => {
-    getTodosApi().then((data) => {
-      console.log(data);
-    });
+    getTodoList();
   }, []);
 
   return (

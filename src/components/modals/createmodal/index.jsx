@@ -29,7 +29,7 @@ function CreateModal({ isOpen, onClose, setTodolist }) {
       ...value,
       createdAt: dayjs().format('YYYY.MM.DD hh:mm:ss'),
       updatedAt: dayjs().format('YYYY.MM.DD hh:mm:ss'),
-      isComplete: false,
+      completed: false,
     };
 
     setTodolist((prev) => [...prev, newItem]);
