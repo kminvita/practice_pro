@@ -2,7 +2,6 @@ import './main.css';
 import { DetailModal, CreateModal } from '../../components';
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import cx from 'classnames';
 import TopInfo from './topinfo';
 import TodoItem from './todoitem';
 
@@ -33,15 +32,13 @@ function MainPage() {
             <main>
                 <TopInfo onClickAdd={onClickAdd}/>
                 <section className='todolist'>
-                    {todoList.map((item) => {
-                        return (
-                                <TodoItem 
-                                    key={item.id}
-                                    item={item}
-                                    onClickTitle={onClickTitle(item.id)}
-                                />
-                        )
-                    })}
+                    {todoList.map((item) => 
+                        <TodoItem 
+                            key={item.id}
+                            item={item}
+                            onClickTitle={onClickTitle(item.id)}
+                        />
+                    )}
                     {todoList.length === 0 && <span className='emptyText'>추가해주세요</span>}
                 </section>
             </main>
