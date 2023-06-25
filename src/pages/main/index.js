@@ -41,13 +41,17 @@ function MainPage() {
         if (key === "create") setIsOpenCreatemodal(false);
     };
 
+    const onClickAdd = () => {
+        setIsOpenCreatemodal(true);
+    }
+
     return (
         <>
             <main>
                 <h1>our React Todolist</h1>
                 <div className='Topnavbar'>
                     <time>TODAY: {dayjs().format('YYYY.MM.DD')}</time>
-                    <button type='button' className='addbutton'>추가</button>
+                    <button type='button' className='addbutton' onClick={onClickAdd}>추가</button>
                 </div>
                 <section className='todolist'>
                     {todoList.map((item) => {
