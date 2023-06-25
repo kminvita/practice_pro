@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './main.css';
 import { DetailModal, CreateModal, EditModal } from '../../components';
 
@@ -39,6 +39,8 @@ function MainPage() {
     const deletedList = todoList.filter((item) => item.id !== id);
     setTodolist(deletedList);
   };
+
+  useEffect
 
   return (
     <div>
