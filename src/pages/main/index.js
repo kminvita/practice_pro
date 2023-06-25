@@ -3,7 +3,8 @@ import { DetailModal, CreateModal } from '../../components';
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import cx from 'classnames';
-import TopInfo from '../topinfo';
+import TopInfo from './topinfo';
+import TodoItem from './todoitem';
 
 dayjs.locale('ko');
 
@@ -34,32 +35,7 @@ function MainPage() {
                 <section className='todolist'>
                     {todoList.map((item) => {
                         return (
-                                <article key={item.id} className={cx("todoitem", { complete: item.isComplete })}>
-                                    <div>
-                                        <p className='todotitle' onClick={() => onClickTitle(item.id)}>{item.title}</p>
-                                        <time className='createdate'>생성날짜 {item.createdAt}</time>
-                                    </div>
-                                    <div>
-                                        <button 
-                                            type='button'
-                                            className='completebutton'
-                                        >
-                                            {item.isComplete ? '완료해제' : '완료'}
-                                        </button>
-                                        <button 
-                                            type='button' 
-                                            className='editbutton'
-                                        >
-                                            수정
-                                        </button>
-                                        <button 
-                                            type='button' 
-                                            className='deletebutton'
-                                        >
-                                            삭제
-                                        </button>
-                                    </div>
-                                </article>
+                                <TodoItem key={item.id} item={item} onClickTitle={onClickTitle}/>
                         )
                     })}
                     {todoList.length === 0 && <span className='emptyText'>추가해주세요</span>}
