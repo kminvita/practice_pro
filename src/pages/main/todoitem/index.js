@@ -1,6 +1,6 @@
 import cx from 'classnames';
 
-function TodoItem({ item, onClickTitle }) {
+function TodoItem({ item, onClickTitle, onClickComplete }) {
     return (
         <article className={cx("todoitem", { complete: item.isComplete })}>
             <div>
@@ -11,6 +11,7 @@ function TodoItem({ item, onClickTitle }) {
                 <button 
                     type='button'
                     className='completebutton'
+                    onClick={onClickComplete}
                 >
                     {item.isComplete ? '완료해제' : '완료'}
                 </button>

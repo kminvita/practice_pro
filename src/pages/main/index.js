@@ -38,7 +38,17 @@ function MainPage() {
 
     const onClickAdd = () => {
         setIsOpenCreatemodal(true);
-    }
+    };
+
+    const onClickComplete = (id) => () => {
+        const updatedList = todoList.reduce((acc, cur) => {
+            if(cur.id === id) 
+                return [...acc, { ...cur, isComplete: !cur.isComplete }];
+            return [...acc, cur];
+        }, []);
+
+        setTodolist(updatedList);
+    };
 
     const onCreate = (e) => {
         e.preventDefault();
@@ -71,6 +81,7 @@ function MainPage() {
                             key={item.id}
                             item={item}
                             onClickTitle={onClickTitle(item.id)}
+                            onClickComplete={onClickComplete(item.id)}
                         />
                     )}
                     <Empty view={todoList.length === 0} />
