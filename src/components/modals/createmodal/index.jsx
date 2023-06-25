@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './createmodal.css';
 import dayjs from 'dayjs';
+import { generateID } from 'utils';
 import { IconClose } from '../../../assets/icons';
-import { generateID } from '../../../utils';
 
 dayjs.locale('ko');
 

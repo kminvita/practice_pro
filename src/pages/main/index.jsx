@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './main.css';
+
+import { getTodosApi } from 'services';
 import { DetailModal, CreateModal, EditModal } from '../../components';
 
 import TopInfo from './topinfo';
 import TodoItem from './todoitem';
 import Empty from './empty';
+
+import './main.css';
 
 function MainPage() {
   const [clickedItem, setClickedItem] = useState(null);
@@ -40,7 +43,11 @@ function MainPage() {
     setTodolist(deletedList);
   };
 
-  useEffect
+  useEffect(() => {
+    getTodosApi().then((data) => {
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div>
