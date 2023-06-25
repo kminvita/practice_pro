@@ -11,7 +11,7 @@ function DetailModal({ isOpen, onClose, item }) {
                 <h1 className='modaltitle'>제목</h1>
                 <p>{item.title}</p>
                 <h1 className='modaltitle'>내용</h1>
-                <p>{item.content}</p>
+                <p className='itemContent'>{item.content}</p>
                 <h1 className='modaltitle'>생성 날짜</h1>
                 <p>{item.createdAt}</p>
                 <h1 className='modaltitle'>수정 날짜</h1>

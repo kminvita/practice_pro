@@ -32,3 +32,7 @@ aside {
     right: 20px;
     cursor: pointer;
 }
+
+.itemContent {
+    white-space: pre-wrap;
+}
