@@ -1,0 +1,42 @@
+import React from 'react';
+import cx from 'classnames';
+
+function TodoItem({
+  item, onClickTitle, onClickComplete, onClickDelete,
+}) {
+  return (
+    <article className={cx('todoitem', { complete: item.completed })}>
+      <div>
+        <p className="todotitle" onClick={onClickTitle}>{item.title}</p>
+        <time className="createdate">
+          생성날짜
+          {item.createdAt}
+        </time>
+      </div>
+      <div>
+        <button
+          type="button"
+          className="completebutton"
+          onClick={onClickComplete}
+        >
+          {item.completed ? '완료해제' : '완료'}
+        </button>
+        <button
+          type="button"
+          className="editbutton"
+        >
+          수정
+        </button>
+        <button
+          type="button"
+          className="deletebutton"
+          onClick={onClickDelete}
+        >
+          삭제
+        </button>
+      </div>
+    </article>
+  );
+}
+
+export default TodoItem;

@@ -1,0 +1,146 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 32px auto 0;
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.Topnavbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+.Topnavbar > time {
+    font-size: 24px;
+}
+
+.addbutton {
+    user-select: none;
+    outline: none;
+    border: 1px solid #c2cdcad4;
+    font-size: 16px;
+    cursor: pointer;
+    color: #858c97;
+    border-color: #c2cdcad4;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.addbutton:hover {
+    color: #ced0da;
+    border-color: #aaafb9;
+}
+
+.todolist {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    border-top: 2px solid #aaaaaa;
+    padding-top: 60px;
+}
+
+.todoitem {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border-radius: 8px;
+    -moz-box-shadow: 3px 3px 14.5px 2px #afafaf;
+    box-shadow: 3px 3px 14.5px 2px #afafaf;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    bottom: 0;
+    right: 0;
+}
+
+.todoitem + .todoitem {
+    margin-top: 20px;
+}
+
+.todoitem:not(.complete):hover {
+    bottom: 4px;
+    right: 4px;
+}
+
+.todoitem button {
+    user-select: none;
+    outline: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: #858c97;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.deletebutton {
+    color: #f42d16;
+    border: 1px solid #f41d16;
+}
+
+.deletebutton:hover {
+    color: #f65745;
+    border: 1px solid #f65745;
+}
+
+.editbutton {
+    color: #808080;
+    border: 1px solid #808080; 
+}
+
+.editbutton:hover {
+    color: #aaaaaa;
+    border: 1px solid #aaaaaa;
+}
+
+.completebutton {
+    color: green;
+    border: 1px solid green;
+}
+
+.completebutton:hover {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+}
+
+.todoitem button + button {
+    margin-left: 8px;
+}
+
+.todoitem.complete {
+    background-color: orange;
+}
+
+.todotitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.createddate {
+    font-size: 12px;
+    font-weight: 400px;
+    color: gray;
+}
+
+.emptyText {
+    font-size: 32px;
+    font-weight: 400px;
+    color: gray;
+}
